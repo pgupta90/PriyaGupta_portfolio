@@ -351,7 +351,11 @@
     function loadState() {
       if (SEEDED) return JSON.parse(JSON.stringify(SEED_DATA));
       const stored = localStorage.getItem(LS_KEY);
-      return stored ? JSON.parse(stored) : JSON.parse(JSON.stringify(DEFAULTS));
+      if (!stored) return JSON.parse(JSON.stringify(DEFAULTS));
+      const s = JSON.parse(stored);
+      const storedIds = new Set((s.projects || []).map(p => p.id));
+      DEFAULTS.projects.forEach(p => { if (!storedIds.has(p.id)) s.projects.push(p); });
+      return s;
     }
 
     function saveState(s) {
