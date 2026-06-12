@@ -324,7 +324,8 @@
       projects: [
         { id: 1, title: 'House Agent on Discord', desc: 'A personal AI agent that answers daily household questions — what to cook, activities to plan, grocery needs — directly in Discord. Includes a daily recap feature for the kids.', domain: 'discord', status: 'live', github: '#', demo: '#', problem: 'Daily household decision fatigue', tech: 'Discord bot + GPT-4 + RAG over family context', open: false },
         { id: 2, title: "Kid's Day Recap", desc: "An automated end-of-day summary delivered via Discord, recapping activities, meals, and notable moments for a child's day. Built on top of the House Agent platform.", domain: 'ai', status: 'live', github: '#', demo: '#', problem: 'Parents missing daily context on kids', tech: 'Scheduled digest + GPT summarisation', open: false },
-        { id: 3, title: 'Wash Sale Checker', desc: 'A personal tool to look up recent Robinhood trade history so you can avoid wash sale violations before placing a new trade. Surfaces similar trades within the 30-day window with realized gain/loss context.', domain: 'fintech', status: 'live', github: '#', demo: '#', problem: 'Unknowingly triggering IRS wash sale rules', tech: 'Robinhood API + RAG over trade history', open: false }
+        { id: 3, title: 'Wash Sale Checker', desc: 'A personal tool to look up recent Robinhood trade history so you can avoid wash sale violations before placing a new trade. Surfaces similar trades within the 30-day window with realized gain/loss context.', domain: 'fintech', status: 'live', github: '#', demo: '#', problem: 'Unknowingly triggering IRS wash sale rules', tech: 'Robinhood API + RAG over trade history', open: false },
+        { id: 4, title: 'CompetitorAnalyst', desc: 'A local RAG-powered CLI that scrapes competitor changelogs and Reddit discussions, stores them in a vector database, and answers natural language competitive intelligence questions with cited, leadership-ready output. Data sources: competitor changelog/release pages, Reddit (subreddit + targeted search), and G2 reviews. Answers include dual timestamps (event date + ingestion date) and source citations so outputs are audit-ready.', domain: 'rag', status: 'live', github: 'https://github.com/pgupta90/CompetitiveAnalyst', demo: '', problem: 'Manual competitive research is slow, inconsistent, and hard to share — PMs spend hours piecing together changelogs and Reddit sentiment instead of acting on it', tech: 'crawl4ai scraping · OpenAI text-embedding-3-small · ChromaDB (local SQLite) · Claude Haiku · Click CLI', open: false }
       ]
     };
 
@@ -389,7 +390,7 @@
         const b = BADGE_MAP[p.domain] || BADGE_MAP.ai;
         const sc = STATUS_COLOR[p.status] || '#888';
         const gh = escAttr(p.github && p.github !== '#' ? p.github : '#');
-        const dm = escAttr(p.demo && p.demo !== '#' ? p.demo : '#');
+        const dm = p.demo && p.demo !== '#' ? escAttr(p.demo) : null;
         return `
         <div class="project-card">
           <div class="card-top">
@@ -405,7 +406,7 @@
           <p class="project-desc">${escHtml(p.desc)}</p>
           <div class="card-actions">
             <a class="btn" href="${gh}" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> GitHub</a>
-            <a class="btn btn-primary" href="${dm}" target="_blank" rel="noopener"><i class="ti ti-player-play"></i> Demo</a>
+            ${dm ? `<a class="btn btn-primary" href="${dm}" target="_blank" rel="noopener"><i class="ti ti-player-play"></i> Demo</a>` : ''}
             <button class="btn" style="margin-left:auto" onclick="toggleDetails(${p.id})">${p.open ? 'Less' : 'Details'} <i class="ti ti-chevron-${p.open ? 'up' : 'down'}"></i></button>
           </div>
           <div class="expand-area${p.open ? ' open' : ''}">
