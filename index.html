@@ -320,6 +320,7 @@
       "demo": "#",
       "problem": "Unknowingly triggering IRS wash sale rules",
       "tech": "Robinhood API + RAG over trade history",
+      "video": "https://raw.githubusercontent.com/pgupta90/wash-sale-checker/main/WashSaleCheckerDemo/demo.mp4",
       "open": false
     }
   ]
@@ -430,6 +431,7 @@
               <div class="expand-item"><label>Problem solved</label><p>${escHtml(p.problem || '—')}</p></div>
               <div class="expand-item"><label>Tech highlight</label><p>${escHtml(p.tech || '—')}</p></div>
             </div>
+            ${p.video ? `<div style="margin-top:1rem"><label style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:#bbb;display:block;margin-bottom:8px">Demo</label><video src="${escAttr(p.video)}" controls style="width:100%;border-radius:8px;border:0.5px solid #eee;max-height:360px"></video></div>` : ''}
           </div>
         </div>`;
       }).join('');
