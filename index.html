@@ -99,7 +99,6 @@
       <div class="name" id="hd-name">Priya Gupta<br><em>Ex-Cruise | VMware | UW-MBA</em></div>
       <p class="bio" id="hd-bio">Experienced PM focused on the next generation of AI-native products - building at the intersection of intelligent systems, user behavior, and real-world workflows that scale.</p>
       <div class="links">
-        <button class="link-pill edit" onclick="openBioModal()"><i class="ti ti-edit"></i> Edit intro</button>
         <a class="link-pill" id="hd-github" href="#" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> GitHub</a>
         <a class="link-pill" id="hd-linkedin" href="https://www.linkedin.com/in/priyagupta4/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
       </div>
@@ -117,7 +116,6 @@
               </div>
               <div class="project-title">House Agent on Discord</div>
             </div>
-            <button class="btn" onclick="openEditProject(1)" aria-label="Edit project" style="flex-shrink:0;margin-top:4px"><i class="ti ti-edit"></i></button>
           </div>
           <p class="project-desc">A personal AI agent that answers daily household questions- what to cook, activities to plan, grocery needs, directly in Discord.</p>
           <div class="card-actions">
@@ -141,7 +139,6 @@
               </div>
               <div class="project-title">Kid's Day Recap</div>
             </div>
-            <button class="btn" onclick="openEditProject(2)" aria-label="Edit project" style="flex-shrink:0;margin-top:4px"><i class="ti ti-edit"></i></button>
           </div>
           <p class="project-desc">An automated end-of-day summary delivered via Discord, recapping activities, meals, and notable moments for a child's day. Built on top of the House Agent platform.</p>
           <div class="card-actions">
@@ -165,7 +162,6 @@
               </div>
               <div class="project-title">Wash Sale Checker</div>
             </div>
-            <button class="btn" onclick="openEditProject(3)" aria-label="Edit project" style="flex-shrink:0;margin-top:4px"><i class="ti ti-edit"></i></button>
           </div>
           <p class="project-desc">A personal tool to look up recent Robinhood trade history so you can avoid wash sale violations before placing a new trade. Surfaces similar trades within the 30-day window with realized gain/loss context.</p>
           <div class="card-actions">
@@ -180,7 +176,6 @@
             </div>
           </div>
         </div></div>
-    <button class="add-project-btn" onclick="openAddProject()"><i class="ti ti-plus"></i> Add project</button>
 
     <div class="skills-section">
       <div class="divider"></div>
@@ -194,73 +189,6 @@
     </div>
   </div>
 
-  <!-- Download bar -->
-  <div class="download-bar">
-    <span class="download-hint">Edits save to your browser automatically</span>
-    <button class="download-btn" onclick="downloadHTML()"><i class="ti ti-download"></i> Download</button>
-  </div>
-
-  <!-- Edit intro modal -->
-  <div class="modal-overlay" id="bio-modal">
-    <div class="modal">
-      <h3>Edit intro</h3>
-      <div class="form-group"><label>Name</label><input type="text" id="b-name" placeholder="Your Name"></div>
-      <div class="form-group"><label>Tagline</label><input type="text" id="b-tagline" placeholder="Strategy meets execution."></div>
-      <div class="form-group"><label>Bio</label><textarea id="b-bio" style="min-height:100px" placeholder="2–3 sentences about your focus and approach."></textarea></div>
-      <div class="form-group"><label>GitHub URL</label><input type="url" id="b-github" placeholder="https://github.com/yourname"></div>
-      <div class="form-group"><label>LinkedIn URL</label><input type="url" id="b-linkedin" placeholder="https://linkedin.com/in/yourname"></div>
-      <div class="form-group"><label>Email</label><input type="email" id="b-email" placeholder="your@email.com"></div>
-      <div class="modal-actions">
-        <div></div>
-        <div class="modal-actions-right">
-          <button class="btn-cancel" onclick="closeBioModal()">Cancel</button>
-          <button class="btn-save" onclick="saveBio()">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add / Edit project modal -->
-  <div class="modal-overlay" id="project-modal">
-    <div class="modal">
-      <h3 id="pm-title">Add project</h3>
-      <div class="form-group"><label>Project title</label><input type="text" id="p-title" placeholder="e.g. Wash Sale Checker"></div>
-      <div class="form-group"><label>Description</label><textarea id="p-desc" placeholder="What does it do? What problem does it solve?"></textarea></div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Domain</label>
-          <select id="p-domain">
-            <option value="discord">Discord</option>
-            <option value="ai">AI / ML</option>
-            <option value="fintech">Fintech</option>
-            <option value="rag">RAG</option>
-            <option value="pm">PM Tools</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Status</label>
-          <select id="p-status">
-            <option value="live">Live</option>
-            <option value="in progress">In progress</option>
-            <option value="concept">Concept</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group"><label>GitHub URL</label><input type="url" id="p-github" placeholder="https://github.com/you/project"></div>
-      <div class="form-group"><label>Demo URL</label><input type="url" id="p-demo" placeholder="https://your-demo.com"></div>
-      <div class="form-row">
-        <div class="form-group"><label>Problem solved</label><input type="text" id="p-problem" placeholder="e.g. Daily decision fatigue"></div>
-        <div class="form-group"><label>Tech highlight</label><input type="text" id="p-tech" placeholder="e.g. RAG over trade history"></div>
-      </div>
-      <div class="modal-actions">
-        <button class="btn-delete" id="pm-delete" onclick="deleteProject()" style="display:none">Delete</button>
-        <div class="modal-actions-right">
-          <button class="btn-cancel" onclick="closeProjectModal()">Cancel</button>
-          <button class="btn-save" onclick="saveProject()">Save project</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script>
     // ── Export constants (replaced by downloadHTML) ──────────────────────────
@@ -417,7 +345,6 @@
               </div>
               <div class="project-title">${escHtml(p.title)}</div>
             </div>
-            <button class="btn" onclick="openEditProject(${p.id})" aria-label="Edit project" style="flex-shrink:0;margin-top:4px"><i class="ti ti-edit"></i></button>
           </div>
           <p class="project-desc">${escHtml(p.desc)}</p>
           <div class="card-actions">
@@ -564,12 +491,6 @@
       renderProjects();
       renderSkills();
 
-      document.getElementById('bio-modal').addEventListener('click', e => {
-        if (e.target === e.currentTarget) closeBioModal();
-      });
-      document.getElementById('project-modal').addEventListener('click', e => {
-        if (e.target === e.currentTarget) closeProjectModal();
-      });
     });
   </script>
 
